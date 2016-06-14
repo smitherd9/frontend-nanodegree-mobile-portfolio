@@ -1,0 +1,21 @@
+{
+  "name": "frontend-nanodegree-mobile-portfolio",
+  "version": "1.0.0",
+  "description": "Udacity Website Optimization Project",
+  "main": "Gruntfile.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smitherd9/frontend-nanodegree-mobile-portfolio.git"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-imagemin": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-critical": "^0.2.0"
+  },
+  "dependencies": {
+    "imagemin-mozjpeg": "^6.0.0"
+  }
+}
