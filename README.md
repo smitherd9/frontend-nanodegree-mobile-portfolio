@@ -52,7 +52,7 @@ This will install the node modules and dependencies.  After this, you should be 
 
 ##### Steps taken to achieve 60 FPS
 
-1. De-nested
+1. De-nested functions from other functions where necessary so that they don't run more than needed
 2. Changed document.querySelector to the more efficient document.getElementById or document.getElementByClassName
 3. Reduced number of pizzas created from 200 to 18
 4. Moved variables outside of for loops where necessary such as in the updatePositions function
