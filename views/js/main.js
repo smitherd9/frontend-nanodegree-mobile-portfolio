@@ -497,8 +497,11 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
   console.log("Average time to generate last 10 frames: " + sum / 10 + "ms");
 }
 
-// The following code for sliding background pizzas was pulled from Ilya's demo found at:
-// https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
+
+
+
+
+
 
 // Moves the sliding background pizzas based on scroll position
 function updatePositions() {
@@ -511,12 +514,21 @@ function updatePositions() {
 //Optimization:  Moved variables outside of for loop
 //Optimization:  Changed querySelectorAll to getElementsByClassName
   var items = document.getElementsByClassName('mover');
-  var sine = (document.body.scrollTop / 1250);
+  var sine = (document.body.scrollTop);
+
+  var phaseArray = [];
 
 
-  for (var i = 0; i < 24; i++) {
+  for (var i = 0; i < 5; i++) {
     var phase = Math.sin(sine + (i % 5));
-    //console.log(phase, document.body.scrollTop / 1250);
+    phaseArray.push(phase);
+  }
+
+
+
+  for (var i = 0; i < items.length; i++) {
+    phase = phaseArray[i % 5];
+    //console.log(document.body.scrollTop / 1250);
 
     //Phase value depends on modulo operator %  which gives us the remainder of i divided by 5
     //Why not just use the same set of 5 numbers for all of the pizzas no matter how big
@@ -528,6 +540,8 @@ function updatePositions() {
     // Optimization:  Used CSS3 Transform instead of style.left
     items[i].style.transform = "translateX(" + 100 * phase + "px)";
   }
+
+
 
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -548,7 +562,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
   // Optimization: Changed number of pizzas generated on page load to just 24 instead of 200
-  for (var i = 0; i < 24; i++) {
+  for (var i = 0; i < 18; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
