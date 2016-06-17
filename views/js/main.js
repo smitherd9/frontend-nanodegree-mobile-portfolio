@@ -497,6 +497,7 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
   console.log("Average time to generate last 10 frames: " + sum / 10 + "ms");
 }
 
+//Using requestAnimationFrame to move pizzas
 window.animating = false;
 
 function pizzasDance() {
@@ -519,6 +520,7 @@ function updatePositions() {
 
 //Optimization:  Moved variables outside of for loop
 //Optimization:  Changed querySelectorAll to getElementsByClassName
+//Optimization: Stored phase values in array
   var items = document.getElementsByClassName('mover');
   var sine = (document.body.scrollTop);
 

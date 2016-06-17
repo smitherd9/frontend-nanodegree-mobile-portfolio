@@ -54,9 +54,11 @@ This will install the node modules and dependencies.  After this, you should be 
 
 1. De-nested functions from other functions where necessary so that they don't run more than needed
 2. Changed document.querySelector to the more efficient document.getElementById or document.getElementByClassName
-3. Reduced number of pizzas created from 200 to 18
+3. Calculate number of pizzas based on window height
 4. Moved variables outside of for loops where necessary such as in the updatePositions function
 5. Used CSS transform instead of style.left
+6. Used more efficient requestAnimationFrame
+7. Stored phase values in array so it is not necessary to calculate them more than once
 
 
 
