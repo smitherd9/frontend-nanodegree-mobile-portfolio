@@ -522,13 +522,13 @@ function updatePositions() {
 //Optimization:  Changed querySelectorAll to getElementsByClassName
 //Optimization: Stored phase values in array
   var items = document.getElementsByClassName('mover');
-  var sine = (document.body.scrollTop);
+  var scrollTop = (document.body.scrollTop / 1250);
 
   var phaseArray = [];
 
 
   for (var i = 0; i < 5; i++) {
-    var phase = Math.sin(sine + (i % 5));
+    var phase = Math.sin(scrollTop + (i % 5));
     phaseArray.push(phase);
   }
 

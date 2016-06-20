@@ -12,8 +12,8 @@ var mozjpeg = require('imagemin-mozjpeg');
       },
       dist: {
         files: {
-          'dist/perfmatters.min.js': ['js/perfmatters.js'],
-          'dist/css/style.css' : ['css/style.css']
+          'dist/perfmatters.min.js': ['js/perfmatters.js']
+
         }
       }
     },
@@ -34,21 +34,22 @@ var mozjpeg = require('imagemin-mozjpeg');
 
 
       imagemin: {                          // Task
-        static: {                          // Target
+          static: {                          // Target
           options: {                       // Target options
             optimizationLevel: 3,
             svgoPlugins: [{ removeViewBox: false }],
             use: [mozjpeg()]
         },
-        files: {                         // Dictionary of files
-          'dist/2048.png': 'src/img/2048.png', // 'destination': 'source'
-          'dist/profilepic.jpg': 'src/img/profilepic.jpg',
-          'dist/cam_be_like.jpg': 'src/img/cam_be_like.jpg',
-          'dist/mobilewebdev.jpg': 'src/img/mobilewebdev.jpg'
+          files: {                         // Dictionary of files
+          'dist/img/2048.png': ['img/2048.png'], // 'destination': 'source'
+          'dist/img/profilepic.jpg': ['img/profilepic.jpg'],
+          'dist/img/cam_be_like.jpg': ['img/cam_be_like.jpg'],
+          'dist/img/mobilewebdev.jpg': ['img/mobilewebdev.jpg'],
+          'dist/img/pizzeria.jpg': ['views/img/pizzeria.jpg']
 
-      }
-    }
-    },
+         },
+        }
+      },
 
       jshint: {
       files: ['Gruntfile.js', 'src/js/perfmatters.js', 'test/**/*.js'],
@@ -69,9 +70,8 @@ var mozjpeg = require('imagemin-mozjpeg');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-critical');
-  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
 
-  grunt.registerTask('default', ['critical', 'uglify', 'jshint', 'imagemin', 'watch']);
+  grunt.registerTask('default', ['critical', 'uglify', 'jshint', 'imagemin']);
 
   };
